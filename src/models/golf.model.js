@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+// const managerSchema = require('./manager.model');
 
 const golfSchema = new Schema({
     titre: {
@@ -18,6 +19,7 @@ const golfSchema = new Schema({
         type: String,
         required: true
     }
+    // manager: [managerSchema.schema]
 }, {
     timestamps: true
 });

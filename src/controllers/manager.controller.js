@@ -5,7 +5,8 @@ exports.create = (req, res) => {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
-                phone: req.body.phone
+                phone: req.body.phone,
+                // golf: req.body.golf
             })
 
         manager.save()

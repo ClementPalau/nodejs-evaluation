@@ -20,6 +20,10 @@ const managerSchema = new Schema({
         minlength: 10,
         maxlength: 10
     }
+    // golf: {
+    //     type: String,
+    //     unique: true
+    // }
 }, {
     timestamps: true
 });
