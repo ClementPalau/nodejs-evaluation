@@ -6,7 +6,7 @@ router.post('/managers', manager.create);
 router.get('/managers/:id', manager.findOne);
 router.post('/managers/:id', manager.updateOne);
 router.delete('/managers/:id', manager.deleteOne);
-// router.get('/managers', manager.findAll);
+router.get('/managers', manager.findAll);
 // router.put('/managers/:id', manager.updateOne);
 
 module.exports = router;

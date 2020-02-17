@@ -7,5 +7,6 @@ const managerRouter = require('./manager.route');
 router.use(userRouter);
 router.use(authRouter);
 router.use(managerRouter);
+router.user(golfRouter);
 
 module.exports = router;

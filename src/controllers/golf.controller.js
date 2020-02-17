@@ -1,14 +1,14 @@
-const Manager = require('../models/manager.model');
+const Golf = require('../models/golf.model');
 
 exports.create = (req, res) => {
-        const manager = new Manager({
+        const golf = new Golf({
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
                 phone: req.body.phone
             })
 
-        manager.save()
+        golf.save()
             .then(data => {
                 res.send(data);
             }).catch(err => {
@@ -21,14 +21,14 @@ exports.create = (req, res) => {
 
 exports.findOne = (req, res) => {
     console.log(req.params);
-    Manager.findById(req.params.id)
-        .then(manager => {
-            if (!manager) {
+    Golf.findById(req.params.id)
+        .then(golf => {
+            if (!golf) {
                 return res.status(404).send({
-                    message: "Manager not found with id" + req.params.id
+                    message: "Golf not found with id" + req.params.id
                 });
             }
-            res.send(manager);
+            res.send(golf);
         })
         .catch(err => {
             return res.status(500).send({
@@ -38,20 +38,20 @@ exports.findOne = (req, res) => {
 }
 
 exports.updateOne = (req, res) => {
-    Manager.findByIdAndUpdate(
+    Golf.findByIdAndUpdate(
         req.params.id,
         req.body
-    ).then(manager => {
-        if (!manager) {
+    ).then(golf => {
+        if (!golf) {
             return res.status(404).send({
-                message: "Manager not found"
+                message: "Golf not found"
             })
         }
-        Manager.findById(req.params.id)
-            .then(newManager => {
+        Golf.findById(req.params.id)
+            .then(newgolf => {
                 res.send({
-                    new_manager: newManager,
-                    old_manager: manager
+                    new_golf: newgolf,
+                    old_golf: golf
                 });
             })
     }).catch(err => {
@@ -62,15 +62,15 @@ exports.updateOne = (req, res) => {
 }
 
 exports.deleteOne = (req, res) => {
-    Manager.findByIdAndRemove(req.params.id)
-        .then(manager => {
-            if (!manager) {
+    Golf.findByIdAndRemove(req.params.id)
+        .then(golf => {
+            if (!golf) {
                 return res.status(404).send({
-                    message: "Manager not found"
+                    message: "golf not found"
                 })
             }
             res.send({
-                message: `Manager with id ${req.params.id} deleted successfully`
+                message: `golf with id ${req.params.id} deleted successfully`
             })
         })
 }
@@ -78,23 +78,23 @@ exports.deleteOne = (req, res) => {
 
 
 exports.findAll = (req, res) => {
-    Manager.find()
-        .then(managers => {
-            res.send(managers);
+    Golf.find()
+        .then(golfs => {
+            res.send(golfs);
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occured when finding managers."
+                message: err.message || "Some error occured when finding golfs."
             })
         })
 }
 
 
 // exports.removeAll = (req, res) => {
-//     Manager.deleteMany((err) => {
+//     Golf.deleteMany((err) => {
 //         if (err) {
 //             res.send(err)
 //         }
-//         res.send('Managers removed');
+//         res.send('Golfs removed');
 //     });
 // }

@@ -16,7 +16,7 @@ function verifyToken(req, res, next) {
             console.log(err);
             return res.status(401).send({
                 auth: false,
-                message: "no authorized"
+                message: "not authorized"
             })
         }
         next();
