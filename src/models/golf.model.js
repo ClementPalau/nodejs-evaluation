@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const golfSchema = new Schema({
     titre: {
         type: String,
-        required: true
+        required: true,
         unique: true
     },
     description: {
@@ -14,14 +14,8 @@ const golfSchema = new Schema({
         type: { type: String},
         coordinates: [Number, Number],
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true
-    },
     manager: {
-        type: Number,
+        type: String,
         required: true
     }
 }, {

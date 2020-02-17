@@ -7,6 +7,5 @@ router.get('/golfs/:id', golf.findOne);
 router.post('/golfs/:id', golf.updateOne);
 router.delete('/golfs/:id', golf.deleteOne);
 router.get('/golfs', golf.findAll);
-// router.put('/golfs/:id', golf.updateOne);
 
 module.exports = router;

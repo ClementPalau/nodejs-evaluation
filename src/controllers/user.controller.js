@@ -11,9 +11,7 @@ exports.create = (req, res) => {
                 lastname: req.body.lastname,
                 admin: req.body.admin
             })
-            // if (err.error) {
-            //     res.send(err);
-            // } else {
+
         user.save()
             .then(data => {
                 res.send(data);

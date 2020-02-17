@@ -2,10 +2,10 @@ const Golf = require('../models/golf.model');
 
 exports.create = (req, res) => {
         const golf = new Golf({
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
-                email: req.body.email,
-                phone: req.body.phone
+                titre: req.body.titre,
+                description: req.body.description,
+                position: req.body.position,
+                manager: req.body.manager
             })
 
         golf.save()
