@@ -23,6 +23,9 @@ const userSchema = new Schema({
     admin: {
         type: Boolean
     },
+    role: {
+        type: String
+    }
 }, {
     timestamps: true
 });

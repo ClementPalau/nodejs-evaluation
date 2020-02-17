@@ -9,7 +9,8 @@ exports.create = (req, res) => {
                 password: hashedPassword,
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
-                admin: req.body.admin
+                admin: req.body.admin,
+                role: req.body.role
             })
 
         user.save()
@@ -21,7 +22,7 @@ exports.create = (req, res) => {
                 })
             })
     }
-    // get all users
+
 exports.findAll = (req, res) => {
     User.find()
         .then(users => {
@@ -86,7 +87,6 @@ exports.deleteOne = (req, res) => {
                 })
             }
             res.send({
-                // message: "User with id" + req.params.id + "deleted successfully"
                 message: `User with id ${req.params.id} deleted successfully`
             })
         })
